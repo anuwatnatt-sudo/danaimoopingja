@@ -455,6 +455,87 @@
 
     <!-- JavaScript Bootstrap & Robust LINE Integration -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const LINE_OA_URL = 'https://lin.ee/x1f6zlT';
+
+        const calcInputs = document.querySelectorAll('.calc-item');
+        calcInputs.forEach(input => {
+            input.addEventListener('input', calculateTotal);
+        });
+
+        function calculateTotal() {
+            const pork = parseInt(document.getElementById('qtyPork').value) || 0;
+            const rice = parseInt(document.getElementById('qtyRice').value) || 0;
+            const set = parseInt(document.getElementById('qtySet').value) || 0;
+
+            const total = (pork * 10) + (rice * 10) + (set * 50);
+            document.getElementById('totalPrice').innerText = total.toLocaleString();
+        }
+
+        function fallbackCopy(text) {
+            const textArea = document.getElementById('hiddenCopyArea');
+            textArea.value = text;
+            textArea.select();
+            textArea.setSelectionRange(0, 99999);
+            try {
+                return document.execCommand('copy');
+            } catch (err) {
+                return false;
+            }
+        }
+
+        function redirectToLine() {
+            alert('✅ คัดลอกรายการสั่งซื้อเรียบร้อยแล้ว!\nระบบกำลังพาไปที่แชท LINE ร้าน ให้แตะค้างที่ช่องพิมพ์แล้วกด "วาง" (Paste) เพื่อส่งออเดอร์ได้เลยครับ');
+            window.location.href = LINE_OA_URL;
+        }
+
+        document.getElementById('preorderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const pork = parseInt(document.getElementById('qtyPork').value) || 0;
+            const rice = parseInt(document.getElementById('qtyRice').value) || 0;
+            const set = parseInt(document.getElementById('qtySet').value) || 0;
+            const time = document.getElementById('pickupTime').value;
+            const location = document.getElementById('officeLocation').value;
+            const note = document.getElementById('note').value.trim() || '-';
+            const total = document.getElementById('totalPrice').innerText;
+
+            if (total == "0" || total == 0) {
+                alert('กรุณาเลือกรายการหมูปิ้งอย่างน้อย 1 รายการครับ');
+                return;
+            }
+
+            // จัดรูปแบบข้อความคำสั่งซื้อ
+            let orderText = 🍡 *สั่งซื้อ DANAI หมูปิ้ง (Pre-Order)*\n;
+            orderText += -------------------------\n;
+            orderText += 👤 *ผู้สั่ง:* ${name}\n;
+            orderText += 📞 *เบอร์โทร:* ${phone}\n\n;
+            orderText +=📦 *รายการสั่งซื้อ:*\n`;
+            if (pork > 0) orderText += - หมูปิ้งเตาถ่าน: ${pork} ไม้\n;
+            if (rice > 0) orderText += - ข้าวเหนียวนุ่ม: ${rice} ห่อ\n;
+            if (set > 0) orderText += - ชุดรวม (หมู4+เหนียว1): ${set} ชุด\n;
+            orderText += \n⏰ *เวลานัดรับ/จัดส่ง:* ${time} น.\n;
+            orderText +=📍 *จุดส่ง:* ${location}\n`;
+            orderText +=📝 *การจัดถุง:* ${note}\n`;
+            orderText += -------------------------\n;
+            orderText +=💰 *ราคารวมทั้งหมด:* ${total} บาท`;
+
+            // ระบบคัดลอกข้อความ
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(orderText).then(() => {
+                    redirectToLine();
+                }).catch(() => {
+                    fallbackCopy(orderText);
+                    redirectToLine();
+                });
+            } else {
+                fallbackCopy(orderText);
+                redirectToLine();
+            }
+        });
+    </script>
 </body>
 </html>
 
