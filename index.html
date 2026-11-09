@@ -23,7 +23,7 @@ body{font-family:'Kanit',sans-serif;background:var(--brand-bg);color:#222}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-brand-dark sticky-top shadow">
 <div class="container">
-<a class="navbar-brand d-flex align-items-center fw-bold" href="#"><img src="S_32710673%20copy.jpg" class="logo-img me-2" alt="DANAI Logo"><span>DANAI <span class="text-brand-red">หมูปิ้ง</span></span></a>
+<a class="navbar-brand d-flex align-items-center fw-bold" href="#"><img src="S_32710673%20copy.jpg" class="logo-img me-2"><span>DANAI <span class="text-brand-red">หมูปิ้ง</span></span></a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
 <div class="collapse navbar-collapse" id="menu">
 <ul class="navbar-nav ms-auto align-items-lg-center">
@@ -43,9 +43,9 @@ body{font-family:'Kanit',sans-serif;background:var(--brand-bg);color:#222}
 
 <div class="container mt-4" id="menu-section">
 <div class="row g-3">
-<div class="col-md-4"><div class="card card-menu h-100"><img src="S_32710674.jpg" class="card-img-top" alt="หมูปิ้งเตาถ่าน"><div class="card-body"><h5 class="fw-bold">หมูปิ้งเตาถ่าน</h5><span class="text-brand-red fw-bold">10.- / ไม้</span></div></div></div>
-<div class="col-md-4"><div class="card card-menu h-100"><img src="S_32710670.jpg" class="card-img-top" alt="แพ็คอุ่นพร้อมทาน"><div class="card-body"><h5 class="fw-bold">แพ็คอุ่นพร้อมทาน</h5><span class="text-brand-red fw-bold">10.- / ไม้</span></div></div></div>
-<div class="col-md-4"><div class="card card-menu h-100"><img src="S_32710677.jpg" class="card-img-top" alt="จัดถุงแยกรายบุคคล"><div class="card-body"><h5 class="fw-bold">จัดถุงแยกรายบุคคล</h5><span class="text-brand-red fw-bold">ตามสั่ง</span></div></div></div>
+<div class="col-md-4"><div class="card card-menu h-100"><img src="S_32710674.jpg" class="card-img-top"><div class="card-body"><h5 class="fw-bold">หมูปิ้งเตาถ่าน</h5><span class="text-brand-red fw-bold">10.- / ไม้</span></div></div></div>
+<div class="col-md-4"><div class="card card-menu h-100"><img src="S_32710670.jpg" class="card-img-top"><div class="card-body"><h5 class="fw-bold">แพ็คอุ่นพร้อมทาน</h5><span class="text-brand-red fw-bold">10.- / ไม้</span></div></div></div>
+<div class="col-md-4"><div class="card card-menu h-100"><img src="S_32710677.jpg" class="card-img-top"><div class="card-body"><h5 class="fw-bold">จัดถุงแยกรายบุคคล</h5><span class="text-brand-red fw-bold">ตามสั่ง</span></div></div></div>
 </div></div>
 
 <section class="container mt-4" id="order-section">
@@ -75,3 +75,115 @@ body{font-family:'Kanit',sans-serif;background:var(--brand-bg);color:#222}
 
 <div class="col-12 bg-light p-2 rounded d-flex justify-content-between align-items-center my-2 border">
 <span class="fw-bold">ราคารวม:</span><span class="fs-4 fw-bold text-brand-red"><span id="totalPrice">0</span> บาท</span>
+</div>
+
+<div class="col-12">
+<button type="submit" class="btn btn-success btn-lg w-100 py-2 rounded-pill fw-bold"><i class="bi bi-line me-2"></i>คัดลอกออเดอร์ & เปิด LINE ร้าน</button>
+<div class="text-center mt-2"><small class="text-muted"><i class="bi bi-info-circle text-success me-1"></i>(เมื่อระบบเด้งไปหน้า LINE ให้กดแตะค้างที่ช่องแชท แล้วเลือก <strong>"วาง (Paste)"</strong> เพื่อส่งออเดอร์)</small></div>
+</div>
+</div>
+</form>
+</div>
+</section>
+
+<section class="container mt-4 text-center" id="contact-section">
+    <div class="bg-light p-4 rounded-4 border">
+        <h5 class="fw-bold text-brand-red mb-2">ช่องทางติดต่อ & แอด LINE ร้าน</h5>
+        <p class="text-muted small mb-3">กดปุ่มด้านล่างเพื่อสแกน QR Code หรือเพิ่มเพื่อน LINE ร้านโดยตรง</p>
+        <a href="https://lin.ee/sHZfAwU" target="_blank" class="btn btn-success btn-lg rounded-pill px-4 fw-bold shadow-sm">
+            <i class="bi bi-line me-2"></i> แอด LINE พรีออเดอร์
+        </a>
+    </div>
+</section>
+
+<footer class="text-center text-white bg-brand-dark mt-4 p-3 small">
+<div class="mb-2">
+    <a href="https://lin.ee/sHZfAwU" target="_blank" class="text-white fs-4 me-3"><i class="bi bi-line"></i></a>
+</div>
+© 2025 DANAI หมูปิ้ง - Pre-Order & Chat-to-Pack System
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const LINE_OA_URL = 'https://lin.ee/sHZfAwU';
+
+function calcTotal() {
+    const p = Math.max(0, parseInt(document.getElementById('qtyPork').value) || 0);
+    const r = Math.max(0, parseInt(document.getElementById('qtyRice').value) || 0);
+    const s = Math.max(0, parseInt(document.getElementById('qtySet').value) || 0);
+    const total = (p * 10) + (r * 10) + (s * 50);
+    document.getElementById('totalPrice').innerText = total.toLocaleString();
+    return total;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    calcTotal();
+    const inputs = document.querySelectorAll('.qty-input');
+    inputs.forEach(input => {
+        input.addEventListener('input', calcTotal);
+        input.addEventListener('change', calcTotal);
+        input.addEventListener('keyup', calcTotal);
+    });
+});
+
+function copyToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+    } else {
+        return Promise.resolve(fallbackCopy(text));
+    }
+}
+
+function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '0';
+    ta.style.top = '0';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    let res = false;
+    try {
+        res = document.execCommand('copy');
+    } catch(e) {
+        res = false;
+    }
+    document.body.removeChild(ta);
+    return res;
+}
+
+document.getElementById('preorderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const totalVal = calcTotal();
+    if (totalVal <= 0) {
+        alert('กรุณาเลือกรายการหมูปิ้งหรือข้าวเหนียวอย่างน้อย 1 รายการครับ');
+        return;
+    }
+
+    const n = document.getElementById('custName').value.trim();
+    const p = document.getElementById('custPhone').value.trim();
+    const pk = parseInt(document.getElementById('qtyPork').value) || 0;
+    const rc = parseInt(document.getElementById('qtyRice').value) || 0;
+    const st = parseInt(document.getElementById('qtySet').value) || 0;
+    const tm = document.getElementById('pickupTime').value;
+    const lc = document.getElementById('officeLocation').value;
+    const nt = document.getElementById('note').value.trim() || '-';
+
+    let txt = `🍡 *สั่งซื้อ DANAI หมูปิ้ง (Pre-Order)*\n-------------------------\n👤 *ผู้สั่ง:* ${n}\n📞 *เบอร์โทร:* ${p}\n\n📦 *รายการสั่งซื้อ:*\n`;
+    if (pk > 0) txt += `- หมูปิ้ง: ${pk} ไม้\n`;
+    if (rc > 0) txt += `- ข้าวเหนียว: ${rc} ห่อ\n`;
+    if (st > 0) txt += `- ชุดรวม: ${st} ชุด\n`;
+    txt += `\n⏰ *เวลานัดรับ:* ${tm} น.\n📍 *จุดส่ง:* ${lc}\n📝 *การจัดถุง:* ${nt}\n-------------------------\n💰 *ราคารวม:* ${totalVal.toLocaleString()} บาท`;
+
+    copyToClipboard(txt).then(() => {
+        window.location.href = LINE_OA_URL;
+    }).catch(() => {
+        window.location.href = LINE_OA_URL;
+    });
+});
+</script>
+</body>
+</html>
