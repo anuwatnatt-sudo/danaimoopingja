@@ -23,7 +23,7 @@ body{font-family:'Kanit',sans-serif;background:var(--brand-bg);color:#222}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-brand-dark sticky-top shadow">
 <div class="container">
-<a class="navbar-brand d-flex align-items-center fw-bold" href="#"><img src="S_32710673 copy.jpg" class="logo-img me-2"><span>DANAI <span class="text-brand-red">หมูปิ้ง</span></span></a>
+<a class="navbar-brand d-flex align-items-center fw-bold" href="#"><img src="danai-logo-png.jpg" class="logo-img me-2" alt="DANAI Logo"><span>DANAI <span class="text-brand-red">หมูปิ้ง</span></span></a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
 <div class="collapse navbar-collapse" id="menu">
 <ul class="navbar-nav ms-auto align-items-lg-center">
@@ -43,9 +43,9 @@ body{font-family:'Kanit',sans-serif;background:var(--brand-bg);color:#222}
 
 <div class="container mt-4" id="menu-section">
 <div class="row g-3">
-<div class="col-md-4"><div class="card card-menu h-100"><img src="S_32710674.jpg" class="card-img-top"><div class="card-body"><h5 class="fw-bold">หมูปิ้งเตาถ่าน</h5><span class="text-brand-red fw-bold">10.- / ไม้</span></div></div></div>
-<div class="col-md-4"><div class="card card-menu h-100"><img src="S_32710670.jpg" class="card-img-top"><div class="card-body"><h5 class="fw-bold">แพ็คอุ่นพร้อมทาน</h5><span class="text-brand-red fw-bold">10.- / ไม้</span></div></div></div>
-<div class="col-md-4"><div class="card card-menu h-100"><img src="S_32710677.jpg" class="card-img-top"><div class="card-body"><h5 class="fw-bold">จัดถุงแยกรายบุคคล</h5><span class="text-brand-red fw-bold">ตามสั่ง</span></div></div></div>
+<div class="col-md-4"><div class="card card-menu h-100"><img src="S_32710674.jpg" class="card-img-top" alt="หมูปิ้งเตาถ่าน"><div class="card-body"><h5 class="fw-bold">หมูปิ้งเตาถ่าน</h5><span class="text-brand-red fw-bold">10.- / ไม้</span></div></div></div>
+<div class="col-md-4"><div class="card card-menu h-100"><img src="S_32710670.jpg" class="card-img-top" alt="แพ็คอุ่นพร้อมทาน"><div class="card-body"><h5 class="fw-bold">แพ็คอุ่นพร้อมทาน</h5><span class="text-brand-red fw-bold">10.- / ไม้</span></div></div></div>
+<div class="col-md-4"><div class="card card-menu h-100"><img src="S_32710677.jpg" class="card-img-top" alt="จัดถุงแยกรายบุคคล"><div class="card-body"><h5 class="fw-bold">จัดถุงแยกรายบุคคล</h5><span class="text-brand-red fw-bold">ตามสั่ง</span></div></div></div>
 </div></div>
 
 <section class="container mt-4" id="order-section">
@@ -79,7 +79,7 @@ body{font-family:'Kanit',sans-serif;background:var(--brand-bg);color:#222}
 
 <div class="col-12">
 <button type="submit" class="btn btn-success btn-lg w-100 py-2 rounded-pill fw-bold"><i class="bi bi-line me-2"></i>คัดลอกออเดอร์ & เปิด LINE ร้าน</button>
-<div class="text-center mt-2"><small class="text-muted"><i class="bi bi-info-circle text-success me-1"></i>(เมื่อระบบเด้งไปหน้า LINE ให้กดแตะค้างที่ช่องแชท แล้วเลือก <strong>"วาง (Paste)"</strong> เพื่อส่งออเดอร์)</small></div>
+<div class="text-center mt-2"><small class="text-muted"><i class="bi bi-info-circle text-success me-1"></i>(เมื่อระบบเด้งไปหน้า LINE ให้กดแตะค้างที่ช่องพิมพ์ แล้วเลือก <strong>"วาง (Paste)"</strong> เพื่อส่งออเดอร์)</small></div>
 </div>
 </div>
 </form>
@@ -179,6 +179,7 @@ document.getElementById('preorderForm').addEventListener('submit', function(e) {
     txt += `\n⏰ *เวลานัดรับ:* ${tm} น.\n📍 *จุดส่ง:* ${lc}\n📝 *การจัดถุง:* ${nt}\n-------------------------\n💰 *ราคารวม:* ${totalVal.toLocaleString()} บาท`;
 
     copyToClipboard(txt).then(() => {
+        alert('📋 คัดลอกรายการสั่งซื้อเรียบร้อยแล้ว!\n\nเมื่อระบบเปิดแอป LINE ให้คุณกดแตะค้างที่ช่องพิมพ์ข้อความ แล้วเลือก "วาง" (Paste) เพื่อส่งออเดอร์ได้เลยครับ');
         window.location.href = LINE_OA_URL;
     }).catch(() => {
         window.location.href = LINE_OA_URL;
