@@ -86,27 +86,15 @@ body{font-family:'Kanit',sans-serif;background:var(--brand-bg);color:#222}
 </div>
 </section>
 
-<section class="container mt-4 text-center" id="contact-section">
-    <div class="bg-light p-4 rounded-4 border">
-        <h5 class="fw-bold text-brand-red mb-2">ช่องทางติดต่อ & แอด LINE ร้าน</h5>
-        <p class="text-muted small mb-3">กดปุ่มด้านล่างเพื่อสแกน QR Code หรือเพิ่มเพื่อน LINE ร้านโดยตรง</p>
-        <a href="https://lin.ee/sHZfAwU" target="_blank" class="btn btn-success btn-lg rounded-pill px-4 fw-bold shadow-sm">
-            <i class="bi bi-line me-2"></i> แอด LINE พรีออเดอร์
-        </a>
-    </div>
-</section>
-
 <footer class="text-center text-white bg-brand-dark mt-4 p-3 small">
-<div class="mb-2">
-    <a href="https://lin.ee/sHZfAwU" target="_blank" class="text-white fs-4 me-3"><i class="bi bi-line"></i></a>
-</div>
 © 2025 DANAI หมูปิ้ง - Pre-Order & Chat-to-Pack System
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-const LINE_OA_URL = 'https://lin.ee/sHZfAwU';
+const LINE_OA_URL = 'https://lin.ee/x1f6zlT';
 
+// ฟังก์ชันคำนวณราคารวม
 function calcTotal() {
     const p = Math.max(0, parseInt(document.getElementById('qtyPork').value) || 0);
     const r = Math.max(0, parseInt(document.getElementById('qtyRice').value) || 0);
@@ -116,6 +104,7 @@ function calcTotal() {
     return total;
 }
 
+// ผูก Event คำนวณราคาทันทีทุกครั้งที่มีการเปลี่ยนตัวเลข
 document.addEventListener('DOMContentLoaded', function() {
     calcTotal();
     const inputs = document.querySelectorAll('.qty-input');
@@ -126,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// ฟังก์ชันคัดลอกข้อความลง Clipboard แบบปลอดภัยบนมือถือ
 function copyToClipboard(text) {
     if (navigator.clipboard && window.isSecureContext) {
         return navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
@@ -154,6 +144,7 @@ function fallbackCopy(text) {
     return res;
 }
 
+// เมื่อกดส่งฟอร์ม
 document.getElementById('preorderForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -178,6 +169,7 @@ document.getElementById('preorderForm').addEventListener('submit', function(e) {
     if (st > 0) txt += `- ชุดรวม: ${st} ชุด\n`;
     txt += `\n⏰ *เวลานัดรับ:* ${tm} น.\n📍 *จุดส่ง:* ${lc}\n📝 *การจัดถุง:* ${nt}\n-------------------------\n💰 *ราคารวม:* ${totalVal.toLocaleString()} บาท`;
 
+    // คัดลอกแล้วเปลี่ยนหน้าไป LINE ทันที โดยไม่ใช้ alert บล็อกระบบ
     copyToClipboard(txt).then(() => {
         window.location.href = LINE_OA_URL;
     }).catch(() => {
