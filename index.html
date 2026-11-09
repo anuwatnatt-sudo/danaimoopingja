@@ -23,7 +23,11 @@ body{font-family:'Kanit',sans-serif;background:var(--brand-bg);color:#222}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-brand-dark sticky-top shadow">
 <div class="container">
-<a class="navbar-brand d-flex align-items-center fw-bold" href="#"><img src="danai-logo.png.jpg" class="logo-img me-2" alt="DANAI Logo"><span>DANAI <span class="text-brand-red">หมูปิ้ง</span></span></a>
+<a class="navbar-brand d-flex align-items-center fw-bold" href="#">
+    <!-- เพิ่ม onerror สลับไปใช้รูปสำรองทันทีหากโลโก้แรกมีปัญหา -->
+    <img src="danai-logo.png.jpg?v=1" onerror="this.onerror=null; this.src='S__32710675.jpg';" class="logo-img me-2" alt="DANAI Logo">
+    <span>DANAI <span class="text-brand-red">หมูปิ้ง</span></span>
+</a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
 <div class="collapse navbar-collapse" id="menu">
 <ul class="navbar-nav ms-auto align-items-lg-center">
